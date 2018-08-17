@@ -1,4 +1,5 @@
 #include "../base.h"
+#include <numeric>
 
 /*Given a set of candidate numbers (C) (without duplicates) and a target number (T), 
 find all unique combinations in C where the candidate numbers sums to T.
@@ -17,93 +18,67 @@ A solution set is:
 class Solution {
 public:
 	vector<vector<int> > combinationSum(vector<int>& candidates, int target) {
-		vector<vector<int> > t_vecRes;
-		sort(candidates.begin(), candidates.end());
-		vector<int> t_vecAtom;
-		for (int i = 0; i < candidates.size();i++) {
-			cout << "??????" << i << endl;
-			BackTracking(candidates, t_vecRes, t_vecAtom, target, i); 
-		}
-		return t_vecRes;
-	}
-	void BackTracking(vector<int> candiadates,vector<vector<int> > &t_vecRes, vector<int> &t_vecAtom,int target, int i){
-		cout << candiadates[i]<<':'<<target << endl;
-		Display(t_vecAtom);
-		if (candiadates.size() == i) {
-			t_vecAtom.clear();
-			return;
-		}
-		if (candiadates[i] < target) {
-			t_vecAtom.push_back(candiadates[i]);
-			BackTracking(candiadates, t_vecRes, t_vecAtom, target-candiadates[i], i);
-
-		}
-		else if(candiadates[i]>target)
-		{	
-			if (t_vecAtom.empty()) {
-				BackTracking(candiadates, t_vecRes, t_vecAtom, target + candiadates[i], i + 1);
-			}
-			else
-			{
-				t_vecAtom.pop_back();
-				BackTracking(candiadates, t_vecRes, t_vecAtom, target+candiadates[i], i+1);
-			}
-		}
-		else//candiadates[i]==target
+		vector<vector<int> > t_vecRet;
+		if(candidates.empty()) return t_vecRet;
+		sort(candidates.begin(),candidates.end());
+		int t_nLen = candidates.size();
+		vector<int> t_vecIter;
+		int i=0;
+		int j =0;
+		int t_nSum=0; 
+		t_vecIter.push_back(candidates[0]);
+		if(candidates[0]==target)
 		{
-			cout << "------------------" << endl;
-			t_vecAtom.push_back(candiadates[i]);
-			t_vecRes.push_back(t_vecAtom);
-			//Display(t_vecAtom);
-			//cout << t_vecRes.size() << endl;
-			//DisplayVecofVec(t_vecRes);
-			t_vecAtom.clear();
-			DisplayVecofVec(t_vecRes);
-			cout << "---" << endl;
-			return;
-			//BackTracking(candiadates, t_vecRes, t_vecAtom,  forevertarget, i + 1);
+			t_vecRet.push_back(t_vecIter);
+			return t_vecRet;
 		}
-	}
-	std::vector<std::vector<int> > combinationSum2(std::vector<int> &candidates, int target) {
-	std::sort(candidates.begin(), candidates.end());
-	std::vector<std::vector<int> > res;
-	std::vector<int> combination;
-	combinationSum2(candidates, target, res, combination, 0);
-	return res;
-}
-private:
-	void combinationSum2(std::vector<int> &candidates, int target, std::vector<std::vector<int> > &res, std::vector<int> &combination, int begin) {
-		if (!target) {
-			res.push_back(combination);
-			return;
+		else if(candidates[0]>target)
+		{
+			return t_vecRet;
 		}
-		for (int i = begin; i != candidates.size() && target >= candidates[i]; ++i)
-			if (i == begin || candidates[i] != candidates[i - 1]) {
-				combination.push_back(candidates[i]);
-				combinationSum2(candidates, target - candidates[i], res, combination, i + 1);
-				combination.pop_back();
+		map<int,int> t_mapRecord;
+		for(int i = 0;i<t_nLen;i++)
+		{
+			t_mapRecord[candidates[i]] = i;
+		}
+		do{
+			t_nSum = accumulate(t_vecIter.begin(),t_vecIter.end(),0);
+			if(t_nSum<target)
+			{
+				t_vecIter.push_back(candidates[j]);
+				continue;
 			}
+			else{
+				if(t_nSum == target)
+				{
+					t_vecRet.push_back(t_vecIter);
+				}
+				t_vecIter.pop_back();
+				while(true)
+				{
+					if(t_vecIter.empty())
+					{
+				
+							return t_vecRet;
+						
+					}
+					int k = *(t_vecIter.end()-1);
+					int iter = t_mapRecord[k];
+					iter++;
+					j = iter;
+					if(j>=t_nLen)
+					{
+						t_vecIter.pop_back();
+						continue;
+					}
+					else{
+						t_vecIter.pop_back();
+						t_vecIter.push_back(candidates[j]);
+						break;
+					}
+				}
+			}
+		}while(true);
+		return t_vecRet;
 	}
-public:
-	std::vector<std::vector<int> > combinationSum1(std::vector<int> &candidates, int target) {
-		std::sort(candidates.begin(), candidates.end());
-		std::vector<std::vector<int> > res;
-		std::vector<int> combination;
-		combinationSum(candidates, target, res, combination, 0);
-		return res;
-	}
-private:
-	void combinationSum(std::vector<int> &candidates, int target, std::vector<std::vector<int> > &res, std::vector<int> &combination, int begin) {
-		if (!target) {
-			res.push_back(combination);
-			return;
-		}
-		for (int i = begin; i != candidates.size() && target >= candidates[i]; ++i) {
-			combination.push_back(candidates[i]);
-			Display(combination);
-			combinationSum(candidates, target - candidates[i], res, combination, ++i);
-			combination.pop_back();
-		}
-	}
-
 };

@@ -83,5 +83,20 @@ using namespace std;
 
 	 }
 
+template<typename T1,typename T2>
+	void Displaymap(map<T1,T2> base){
+		int t_nLen = base.size();
+		if(0==t_nLen)
+		{
+			cout<<"{"<<endl<<"}"<<endl;
+		}
+		cout<<"{";
+		for(typename map<T1,T2>::iterator iter = base.begin(); (iter) != base.end(); iter++)
+		{
+			cout<<iter->first<<":"<<iter->second<<", ";
+		}
+		//cout<<(*(base.end()-1)).first<<":"<<(*(base.end()-1)).second<<endl;
+		cout<<"}"<<endl;
+	}
 #endif // ! _BASE_H_
 
