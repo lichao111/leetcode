@@ -26,10 +26,11 @@ public:
         vector<pair<int,int> > t_vecLocate;
         if(n==0) return t_vecRet;
         int i,j =0 ;
-        t_vecLocate.push_back(make_pair<int,int>(i,j));
+        t_vecLocate.push_back(make_pair(i,j));
+        t_vecIter.push_back(BuildLine(n,j));
         do{
-
-        }while(true)
+            isCorrected()    
+        }while(true);
         return t_vecRet;
     }
     bool isCorrected( vector<pair<int,int> > &base)
@@ -45,7 +46,7 @@ public:
         sort(send.begin(),send.end());
        return (first.size()==distance(first.begin(),unique(first.begin(),first.end())))&&(send.size()==distance(send.begin(),unique(send.begin(),send.end())));
     }
-    string BuildLine(int n,int k)
+    string BuildLine(const int &n,const int &k)
     {
         string t_strRet;
         for(int i = 0;i<n;i++)
