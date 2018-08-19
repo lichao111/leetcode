@@ -1,5 +1,5 @@
 
-#include "./Algorithm/51.cpp"
+#include "./Arry/891.cpp"
 
 #include "./Arry/BinarySearch.cpp"
 
@@ -7,10 +7,10 @@ int main()
 {
 	Solution t_mSoluton;
 	//5,6,4,4,6,9,4,4,7,4,4,8,2,6,8,1,5,9,6,5,2,7,9,7,9,6,9,4,1,6,8,8,4,4,2,0,3,8,5
-	int myints11[] = {1,2};
+	int myints11[] = {6,13,2,15,1,25,12,30,14,26,13,18,37,6,5,9,31,33,22,29};
 	std::vector<int> nums11(myints11, myints11 + sizeof(myints11) / sizeof(int));
 
-	int myints12[] = {3,4};
+	int myints12[] = {2,4};
 	std::vector<int> nums12(myints12, myints12 + sizeof(myints12) / sizeof(int));
 
 	int myints13[] = {9,10,11,12};
@@ -20,8 +20,8 @@ int main()
 	std::vector<int> nums14(myints14, myints14 + sizeof(myints14) / sizeof(int));
 
 	vector<pair<int,int> > nums1;
-	nums1.push_back(make_pair(1,2));
-	nums1.push_back(make_pair(0,2));
+	nums1.push_back(make_pair(2,2));
+	nums1.push_back(make_pair(5,4));
 
 	// nums1.push_back(nums11);
 	// nums1.push_back(nums12);
@@ -41,7 +41,17 @@ int main()
 	//DisplayLiseNode(l2);
 	//DisplayLiseNode(l3);
 
-	
-	cout<<t_mSoluton.isCorrected(nums1)<<endl;
+	vector<string> aaa;
+	aaa.push_back("abc");
+	aaa.push_back("deq");
+	aaa.push_back("mee");
+	aaa.push_back("aqq");
+	aaa.push_back("dkd");
+	aaa.push_back("ccc");
+
+
+	DisplayVecofVec(t_mSoluton.subset(nums11));
+	//cout<<t_mSoluton.sumSubseqWidths(nums11)<<endl;
+
 	return 0;
 }

@@ -72,6 +72,7 @@ using namespace std;
 		 int t_nLen = base.size();
 		 if (0 == t_nLen) {
 			 cout << "[" << endl << "[]" << endl << "]"<< endl;
+			 return;
 		 }
 		 cout << "[" << endl;
 		 
@@ -89,6 +90,7 @@ template<typename T1,typename T2>
 		if(0==t_nLen)
 		{
 			cout<<"{"<<endl<<"}"<<endl;
+			return;
 		}
 		cout<<"{";
 		for(typename map<T1,T2>::iterator iter = base.begin(); (iter) != base.end(); iter++)
