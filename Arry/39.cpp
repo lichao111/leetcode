@@ -17,7 +17,7 @@ A solution set is:
   ]*/
 class Solution {
 public:
-	vector<vector<int> > combinationSum(vector<int>& candidates, int target) {
+	vector<vector<int> > combinationSum1(vector<int>& candidates, int target) {
 		vector<vector<int> > t_vecRet;
 		if(candidates.empty()) return t_vecRet;
 		sort(candidates.begin(),candidates.end());
@@ -80,5 +80,33 @@ public:
 			}
 		}while(true);
 		return t_vecRet;
+	}
+
+	vector<vector<int> > combinationSum(vector<int>& candidates, int target) {//backtrack method of recursion 递归方式的回溯效率要差与非第归方式的回溯
+		vector< vector<int> > t_nRet; 
+		vector<int> t_vectmp;
+		sort(candidates.begin(),candidates.end());
+		backtrack(candidates,target,t_vectmp,0,t_nRet);
+		return t_nRet;
+	}
+private:
+	void backtrack(vector<int> &candidates,int target,vector<int> tmp,int index ,vector<vector<int> > &t_nRet){
+		//the return condition
+		if(0==target){
+			t_nRet.push_back(tmp);
+			return;
+		}
+		for(int i = index;i<candidates.size();i++)
+		{
+			if(candidates[i]>target){
+				return;
+			}
+			tmp.push_back(candidates[i]);
+			Display(tmp);
+			cout<<target<<endl;
+			cout<<"i "<<i<<endl;
+			backtrack(candidates,target-candidates[i],tmp,i,t_nRet); //运行此backtrack函数前后的tmp是没有变化的
+			tmp.pop_back();
+		}
 	}
 };

@@ -1,6 +1,6 @@
 
-#include "./Arry/891.cpp"
-
+/*#include "./Arry/891.cpp"*/
+#include "./Arry/40.cpp"
 #include "./Arry/BinarySearch.cpp"
 
 int main()
@@ -10,7 +10,7 @@ int main()
 	int myints11[] = {6,13,2,15,1,25,12,30,14,26,13,18,37,6,5,9,31,33,22,29};
 	std::vector<int> nums11(myints11, myints11 + sizeof(myints11) / sizeof(int));
 
-	int myints12[] = {2,4};
+	int myints12[] = {10,1,2,7,6,1,5};
 	std::vector<int> nums12(myints12, myints12 + sizeof(myints12) / sizeof(int));
 
 	int myints13[] = {9,10,11,12};
@@ -50,7 +50,7 @@ int main()
 	aaa.push_back("ccc");
 
 
-	DisplayVecofVec(t_mSoluton.subset(nums11));
+	DisplayVecofVec(t_mSoluton.combinationSum(nums12,8));
 	//cout<<t_mSoluton.sumSubseqWidths(nums11)<<endl;
 
 	return 0;

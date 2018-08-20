@@ -2,7 +2,7 @@
 #include <numeric>
 class Solution {
 public:
-	vector<vector<int> > combinationSum(vector<int>& candidates, int target) {
+	vector<vector<int> > combinationSum1(vector<int>& candidates, int target) {
         vector<vector<int> > t_vecRet;
 		if(candidates.empty()) return t_vecRet;
 		sort(candidates.begin(),candidates.end());
@@ -105,5 +105,47 @@ public:
 		}while(true);
 		return t_vecRet;
     }
+	vector<vector<int> > combinationSum(vector<int>& candidates, int target) {
+		sort(candidates.begin(),candidates.end());
+		
+		vector< vector<int> > t_nRet;
+		vector<int> tmp;
+		for(auto i:candidates){
+			t_mapCount[i]++;
+		}
+		candidates.resize(distance(candidates.begin(),unique(candidates.begin(),candidates.end())));
+		Displaymap(t_mapCount);
+		t_nRet.clear();
+		tmp.clear();
+		backtrack(candidates,target,tmp,t_nRet,0);
+	}
+private:
+	void backtrack(vector<int> &candidates,int target,vector<int> &tmp,vector<vector<int> > &t_vecRet,int index){
+		if(target==0){
+			t_vecRet.push_back(tmp);
+			return ;
+		}
+		for(int i= index;i<candidates.size();i++){
+			if(candidates[i]>target){
+				return;
+			}
+			tmp.push_back(candidates[i]);
+			t_mapCountTmp[candidates[i]]++;
+			if(t_mapCount[candidates[i]]<t_mapCountTmp[candidates[i]])
+			{
+				tmp.pop_back();
+			t_mapCountTmp[candidates[i]]--;
+			return;
+			}
+			Display(tmp);
+			cout<<target<<endl;
+			backtrack(candidates,target-candidates[i],tmp,t_vecRet,i);
+			tmp.pop_back();
+			t_mapCountTmp[candidates[i]]--;
+		}
+	}
+private:
+	map<int,int> t_mapCount;
+	map<int,int> t_mapCountTmp;
 };
 
