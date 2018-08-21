@@ -105,40 +105,40 @@ public:
 		}while(true);
 		return t_vecRet;
     }
-	vector<vector<int> > combinationSum(vector<int>& candidates, int target) {
+	vector<vector<int> > combinationSum(vector<int>& candidates, int target) {//this backtrack is poor than the first one
 		sort(candidates.begin(),candidates.end());
 		
 		vector< vector<int> > t_nRet;
 		vector<int> tmp;
-		for(auto i:candidates){
-			t_mapCount[i]++;
+		for(vector<int>::iterator i = candidates.begin();i!=candidates.end();i++){
+			t_mapCount[*i]++;
+		}
+		for(map<int,int>::iterator iter = t_mapCount.begin();iter!=t_mapCount.end();iter++){
+			t_mapCountTmp[iter->first] = 0;
 		}
 		candidates.resize(distance(candidates.begin(),unique(candidates.begin(),candidates.end())));
-		Displaymap(t_mapCount);
 		t_nRet.clear();
 		tmp.clear();
 		backtrack(candidates,target,tmp,t_nRet,0);
+		return t_nRet;
 	}
 private:
 	void backtrack(vector<int> &candidates,int target,vector<int> &tmp,vector<vector<int> > &t_vecRet,int index){
-		if(target==0){
+		if(target==0&&(t_mapCountTmp[candidates[index]]<=t_mapCount[candidates[index]])){
 			t_vecRet.push_back(tmp);
 			return ;
 		}
 		for(int i= index;i<candidates.size();i++){
+			if(t_mapCountTmp[candidates[i]]>t_mapCount[candidates[i]]){
+				return;
+			}
 			if(candidates[i]>target){
 				return;
 			}
 			tmp.push_back(candidates[i]);
 			t_mapCountTmp[candidates[i]]++;
-			if(t_mapCount[candidates[i]]<t_mapCountTmp[candidates[i]])
-			{
-				tmp.pop_back();
-			t_mapCountTmp[candidates[i]]--;
-			return;
-			}
-			Display(tmp);
-			cout<<target<<endl;
+			//Display(tmp);
+			//cout<<target-candidates[i]<<endl;
 			backtrack(candidates,target-candidates[i],tmp,t_vecRet,i);
 			tmp.pop_back();
 			t_mapCountTmp[candidates[i]]--;

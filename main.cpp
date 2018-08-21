@@ -1,6 +1,4 @@
-
-/*#include "./Arry/891.cpp"*/
-#include "./Arry/40.cpp"
+#include "./Algorithm/52.cpp"
 #include "./Arry/BinarySearch.cpp"
 
 int main()
@@ -50,8 +48,9 @@ int main()
 	aaa.push_back("ccc");
 
 
-	DisplayVecofVec(t_mSoluton.combinationSum(nums12,8));
-	//cout<<t_mSoluton.sumSubseqWidths(nums11)<<endl;
+	//DisplayVecofVec(t_mSoluton.solveNQueens(8));
+
+	cout<<t_mSoluton.totalNQueens(5)<<endl;
 
 	return 0;
 }
