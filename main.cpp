@@ -1,4 +1,4 @@
-#include "./Algorithm/52.cpp"
+#include "./Algorithm/22.cpp"
 #include "./Arry/BinarySearch.cpp"
 
 int main()
@@ -40,17 +40,13 @@ int main()
 	//DisplayLiseNode(l3);
 
 	vector<string> aaa;
-	aaa.push_back("abc");
-	aaa.push_back("deq");
-	aaa.push_back("mee");
-	aaa.push_back("aqq");
-	aaa.push_back("dkd");
-	aaa.push_back("ccc");
+	aaa.push_back("(((((");
+
 
 
 	//DisplayVecofVec(t_mSoluton.solveNQueens(8));
-
-	cout<<t_mSoluton.totalNQueens(5)<<endl;
+	for(int i = 0;i<10;i++)
+	Display(t_mSoluton.generateParenthesis(0));
 
 	return 0;
 }
