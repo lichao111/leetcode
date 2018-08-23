@@ -12,7 +12,33 @@
 #include <stack>
 #include <string>
 #include <math.h>
+#include <sys/time.h>
 using namespace std;
+
+
+class Timer{
+public:
+	void TimeStart();
+	void TimeStop();
+
+	void TimeUsr();
+
+private:
+	struct timeval t1;
+	struct timeval t2;
+};
+
+void Timer::TimeStart(){
+	gettimeofday(&t1,NULL);
+}
+void Timer::TimeStop(){
+	gettimeofday(&t2,NULL);
+}
+void Timer::TimeUsr(){
+	double timeuse = t2.tv_sec - t1.tv_sec + (t2.tv_usec - t1.tv_usec)/1000000.0;
+	cout<<"Run time: "<<timeuse*1000<<" ms"<<endl;
+}
+
 
 
 // Definition for singly-linked list.
