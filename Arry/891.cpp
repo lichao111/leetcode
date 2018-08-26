@@ -29,7 +29,7 @@ public:
         }
         return t_nSum%(int)(pow(10,9)+7);
     }
-    vector<vector<int> > subset(vector<int> &A){
+    vector<vector<int> > subset_1(vector<int> &A){
         vector<vector<int> > t_nRet;
         vector<int> t_vecIter;
         if(A.size()==0){
@@ -54,5 +54,21 @@ public:
         }
         return t_nRet;
         
+    }
+    vector<vector<int> > subset(vector<int> &A){
+        vector<vector<int> > t_vecRet;
+        vector<int> t_vecIter;
+        backtrack(t_vecRet,t_vecIter,0,A);
+        return t_vecRet;
+    }
+    void backtrack(vector<vector<int > > &t_vecRet,vector<int> &t_vecIter,int index,vector<int> &A){
+        if(index == A.size()) return ;
+        //t_vecRet.push_back(t_vecIter);
+        t_vecIter.push_back(A[index]);
+        t_vecRet.push_back(t_vecIter);
+        backtrack(t_vecRet,t_vecIter,index+1,A);
+        t_vecIter.pop_back();       
+        //t_vecRet.push_back(t_vecIter);
+        backtrack(t_vecRet,t_vecIter,index+1,A);
     }
 };
