@@ -11,10 +11,10 @@ int main()
 	int myints11[] =  {5,69,89,92,31,16,25,45,63,40,16,56,24,40,75,82,40,12,50,62,92,44,67,38,92,22,91,24,26,21,100,42,23,56,64,43,95,76,84,79,89,4,16,94,16,77,92,9,30,13};
 	std::vector<int> nums11(myints11, myints11 + sizeof(myints11) / sizeof(int));
 
-	int myints12[] = {0,0,0};
+	int myints12[] = {0,0};
 	std::vector<int> nums12(myints12, myints12 + sizeof(myints12) / sizeof(int));
 
-	int myints13[] = {0,1,0};
+	int myints13[] = {1,1};
 	std::vector<int> nums13(myints13, myints13 + sizeof(myints13) / sizeof(int));
 
 	int myints14[] = {0,0,0};
@@ -43,7 +43,7 @@ int main()
 	vector<vector<int> > A;
 	A.push_back(nums12);
 	A.push_back(nums13);
-	A.push_back(nums14);
+	//A.push_back(nums14);
 
 	Solution *t_mSolution;
 	
