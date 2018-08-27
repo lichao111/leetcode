@@ -1,5 +1,5 @@
-#include "./Arry/891.cpp"
-//#include "./Algorithm/895.cpp"
+//#include "./Arry/891.cpp"
+#include "./Algorithm/63.cpp"
 #include "./Arry/BinarySearch.cpp"
 
 int main()
@@ -11,13 +11,13 @@ int main()
 	int myints11[] =  {5,69,89,92,31,16,25,45,63,40,16,56,24,40,75,82,40,12,50,62,92,44,67,38,92,22,91,24,26,21,100,42,23,56,64,43,95,76,84,79,89,4,16,94,16,77,92,9,30,13};
 	std::vector<int> nums11(myints11, myints11 + sizeof(myints11) / sizeof(int));
 
-	int myints12[] = {10,1,2,7,6,1,5};
+	int myints12[] = {0,0,0};
 	std::vector<int> nums12(myints12, myints12 + sizeof(myints12) / sizeof(int));
 
-	int myints13[] = {9,10,11,12};
+	int myints13[] = {0,1,0};
 	std::vector<int> nums13(myints13, myints13 + sizeof(myints13) / sizeof(int));
 
-	int myints14[] = {13,14,15,16};
+	int myints14[] = {0,0,0};
 	std::vector<int> nums14(myints14, myints14 + sizeof(myints14) / sizeof(int));
 
 	vector<pair<int,int> > nums1;
@@ -41,12 +41,14 @@ int main()
 	//DisplayLiseNode(l2);
 	//DisplayLiseNode(l3);
 	vector<vector<int> > A;
-
+	A.push_back(nums12);
+	A.push_back(nums13);
+	A.push_back(nums14);
 
 	Solution *t_mSolution;
-	int a[]={1,2,3};
+	
 	//DisplayVecofVec( t_mSolution->subset(nums11));
-	cout<<(t_mSolution->sumSubseqWidths(nums11))<<endl;;
+	cout<<(t_mSolution->uniquePathsWithObstacles(A))<<endl;;
 	
 	t_mTimer.TimeStop();
 	t_mTimer.TimeUsr();
