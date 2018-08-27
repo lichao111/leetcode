@@ -1,14 +1,14 @@
-//#include "./Arry/892.cpp"
-#include "./Algorithm/895.cpp"
+#include "./Arry/891.cpp"
+//#include "./Algorithm/895.cpp"
 #include "./Arry/BinarySearch.cpp"
 
 int main()
 {
 	Timer t_mTimer;
 	t_mTimer.TimeStart();
-	FreqStack *FreqStackl = new FreqStack;
+	//FreqStack *FreqStackl = new FreqStack;
 	//5,6,4,4,6,9,4,4,7,4,4,8,2,6,8,1,5,9,6,5,2,7,9,7,9,6,9,4,1,6,8,8,4,4,2,0,3,8,5
-	int myints11[] =  {6,13,2,15,1,25,12,30,14,26,13,18,37,6,5,9,31,33,22,29};
+	int myints11[] =  {5,69,89,92,31,16,25,45,63,40,16,56,24,40,75,82,40,12,50,62,92,44,67,38,92,22,91,24,26,21,100,42,23,56,64,43,95,76,84,79,89,4,16,94,16,77,92,9,30,13};
 	std::vector<int> nums11(myints11, myints11 + sizeof(myints11) / sizeof(int));
 
 	int myints12[] = {10,1,2,7,6,1,5};
@@ -41,16 +41,14 @@ int main()
 	//DisplayLiseNode(l2);
 	//DisplayLiseNode(l3);
 	vector<vector<int> > A;
-	vector<int> t1{1,1,1};
-	vector<int> t2{1,0,1};
-	vector<int> t3{1,1,1};
-	A.push_back(t1);
-	A.push_back(t2);
-	A.push_back(t3);
-	//cout<<t_mSoluton.surfaceArea(A)<<endl;;
+
+
+	Solution *t_mSolution;
+	int a[]={1,2,3};
+	//DisplayVecofVec( t_mSolution->subset(nums11));
+	cout<<(t_mSolution->sumSubseqWidths(nums11))<<endl;;
 	
 	t_mTimer.TimeStop();
 	t_mTimer.TimeUsr();
-	cout<<"----------------------------"<<endl;
 	return 0;
 }

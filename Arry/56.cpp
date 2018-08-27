@@ -34,10 +34,10 @@ class Solution
   public:
     vector<Interval> merge(vector<Interval> &intervals)
     {
-        // typedef bool (*PTRFUN)(Interval,Interval);
-        // PTRFUN pFun;
-        // pFun = compare;
-        sort(intervals.begin(), intervals.end(), compare);
+        typedef bool (*PTRFUN)(Interval,Interval);
+        PTRFUN pFun;
+        pFun = compare;
+        sort(intervals.begin(), intervals.end(), pFun);
         vector<Interval> t_vecRet;
         t_vecRet.clear();
         if (intervals.empty())

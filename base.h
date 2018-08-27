@@ -36,7 +36,10 @@ void Timer::TimeStop(){
 }
 void Timer::TimeUsr(){
 	double timeuse = t2.tv_sec - t1.tv_sec + (t2.tv_usec - t1.tv_usec)/1000000.0;
+	cout<<endl;
+	cout<<"------------------"<<endl;
 	cout<<"Run time: "<<timeuse*1000<<" ms"<<endl;
+	cout<<"------------------"<<endl;
 }
 
 
