@@ -129,5 +129,17 @@ template<typename T1,typename T2>
 		//cout<<(*(base.end()-1)).first<<":"<<(*(base.end()-1)).second<<endl;
 		cout<<"}"<<endl;
 	}
+
+
+/*************construct binary tree************/
+//Definition for a binary tree node.
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
+
 #endif // ! _BASE_H_
 
