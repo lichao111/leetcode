@@ -1,5 +1,5 @@
 //#include "./Arry/891.cpp"
-#include "./Algorithm/63.cpp"
+#include "./Algorithm/889.cpp"
 #include "./Arry/BinarySearch.cpp"
 
 int main()
@@ -8,10 +8,10 @@ int main()
 	t_mTimer.TimeStart();
 	//FreqStack *FreqStackl = new FreqStack;
 	//5,6,4,4,6,9,4,4,7,4,4,8,2,6,8,1,5,9,6,5,2,7,9,7,9,6,9,4,1,6,8,8,4,4,2,0,3,8,5
-	int myints11[] =  {5,69,89,92,31,16,25,45,63,40,16,56,24,40,75,82,40,12,50,62,92,44,67,38,92,22,91,24,26,21,100,42,23,56,64,43,95,76,84,79,89,4,16,94,16,77,92,9,30,13};
+	int myints11[] =  {4,2,1,3};
 	std::vector<int> nums11(myints11, myints11 + sizeof(myints11) / sizeof(int));
 
-	int myints12[] = {0,0};
+	int myints12[] = {3,1,2,4};
 	std::vector<int> nums12(myints12, myints12 + sizeof(myints12) / sizeof(int));
 
 	int myints13[] = {1,1};
@@ -48,7 +48,16 @@ int main()
 	Solution *t_mSolution;
 	
 	//DisplayVecofVec( t_mSolution->subset(nums11));
-	cout<<(t_mSolution->uniquePathsWithObstacles(A))<<endl;;
+
+	/*TreeNode a(1);TreeNode b(2);TreeNode c(3);
+	TreeNode d(4);TreeNode e(5);TreeNode f(6);
+	TreeNode g(7);
+	a.left=&b;a.right=&c;b.left=&d;b.right=&e;
+	c.right=&f;f.left=&g;*/
+
+	TreeNode*a = t_mSolution->constructFromPrePost(nums11,nums12);
+	PostOrder(a);
+
 	
 	t_mTimer.TimeStop();
 	t_mTimer.TimeUsr();
