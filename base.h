@@ -202,6 +202,7 @@ void InOrder(TreeNode *root)
 			Node.push(tmp->right);
 		}
 	}
+	cout<<endl;
 }
 
 void PreOrder(TreeNode *root)
@@ -225,6 +226,7 @@ void PreOrder(TreeNode *root)
 			Node.push(tmp->right);
 		}
 	}
+	cout<<endl;
 }
 
 void PostOrder(TreeNode *root)
@@ -252,6 +254,7 @@ void PostOrder(TreeNode *root)
 			
 		}
 	}
+	cout<<endl;
 }
 
 void LevelOrder(TreeNode *root){

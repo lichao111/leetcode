@@ -1,20 +1,20 @@
-//#include "./Arry/891.cpp"
-#include "./Algorithm/889.cpp"
+//#include "./Arry/892.cpp"
+#include "./Algorithm/895.cpp"
 #include "./Arry/BinarySearch.cpp"
 
 int main()
 {
 	Timer t_mTimer;
 	t_mTimer.TimeStart();
-	//FreqStack *FreqStackl = new FreqStack;
+	
 	//5,6,4,4,6,9,4,4,7,4,4,8,2,6,8,1,5,9,6,5,2,7,9,7,9,6,9,4,1,6,8,8,4,4,2,0,3,8,5
-	int myints11[] =  {4,2,1,3};
+	int myints11[] =  {4,2};
 	std::vector<int> nums11(myints11, myints11 + sizeof(myints11) / sizeof(int));
 
-	int myints12[] = {3,1,2,4};
+	int myints12[] = {1,2};
 	std::vector<int> nums12(myints12, myints12 + sizeof(myints12) / sizeof(int));
 
-	int myints13[] = {1,1};
+	int myints13[] = {3,4};
 	std::vector<int> nums13(myints13, myints13 + sizeof(myints13) / sizeof(int));
 
 	int myints14[] = {0,0,0};
@@ -40,12 +40,24 @@ int main()
 	//DisplayLiseNode(l1);
 	//DisplayLiseNode(l2);
 	//DisplayLiseNode(l3);
-	vector<vector<int> > A;
-	A.push_back(nums12);
-	A.push_back(nums13);
-	//A.push_back(nums14);
+	// vector<vector<int> > A;
+	// A.push_back(nums12);
+	// A.push_back(nums13);
+	// //A.push_back(nums14);
 
-	Solution *t_mSolution;
+	FreqStack *FreqStackl = new FreqStack();
+	FreqStackl->push(5);
+	FreqStackl->push(7);
+	FreqStackl->push(5);
+	FreqStackl->push(7);
+	FreqStackl->push(4);
+	FreqStackl->push(5);
+
+	cout<<FreqStackl->pop()<<endl;
+	cout<<FreqStackl->pop()<<endl;
+	cout<<FreqStackl->pop()<<endl;
+	cout<<FreqStackl->pop()<<endl;
+
 	
 	//DisplayVecofVec( t_mSolution->subset(nums11));
 
@@ -54,11 +66,8 @@ int main()
 	TreeNode g(7);
 	a.left=&b;a.right=&c;b.left=&d;b.right=&e;
 	c.right=&f;f.left=&g;*/
-
-	TreeNode*a = t_mSolution->constructFromPrePost(nums11,nums12);
-	PostOrder(a);
-
 	
+
 	t_mTimer.TimeStop();
 	t_mTimer.TimeUsr();
 	return 0;
