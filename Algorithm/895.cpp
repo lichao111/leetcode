@@ -3,6 +3,7 @@
 Input: 
 ["FreqStack","push","push","push","push","push","push","pop","pop","pop","pop"],
 [[],[5],[7],[5],[7],[4],[5],[],[],[],[]]
+
 Output: [null,null,null,null,null,null,null,5,7,5,4]
 Explanation:
 After making six .push operations, the stack is [5,7,5,7,4,5] from bottom to top.  Then:
@@ -33,42 +34,36 @@ class FreqStack
   public:
     FreqStack()
     {
-        stk.clear();
+        t_nMaxCount=0;
+        t_mapStack.clear();
         t_mapCount.clear();
-        t_nMaxLocation.clear();
-        t_nMaxLocation.push_back(0);
     }
 
     void push(int x)
     {
-        stk.push_back(x);
         t_mapCount[x]++;
-        cout<<t_nMaxLocation.back()<<endl;
-        if(t_mapCount[x]>=t_mapCount[t_nMaxLocation.back()]){
-            t_nMaxLocation.push_back(stk.size());
+        t_mapStack[t_mapCount[x]].push_back(x);
+        if(t_mapCount[x]>t_nMaxCount){
+            t_nMaxCount =  t_mapCount[x];
         }
-        else{
-            t_nMaxLocation.push_back(t_nMaxLocation.back());
-        }
-       // Displaymap(t_mapCount);
     }
 
     int pop()
     {
-        int t_nRet = *(stk.begin() +t_nMaxLocation.back());
-
+       int t_nRet = t_mapStack[t_nMaxCount].back();
+       t_mapStack[t_nMaxCount].pop_back();
         t_mapCount[t_nRet]--;
-        cout<<t_nMaxLocation.back()<<endl;
-        stk.erase(stk.begin() +t_nMaxLocation.back());
-        t_nMaxLocation.pop_back();
-
-        return t_nRet;
+        if(t_mapStack[t_nMaxCount].empty())
+        {
+            t_nMaxCount--;
+        }
+       return t_nRet;
     }
 
   private:
-    vector<int> stk;
-    map<int, int> t_mapCount;
-    vector<int> t_nMaxLocation;
+    map<int, vector<int> > t_mapStack;
+    map<int,int> t_mapCount;
+    int t_nMaxCount;
 };
 
 /**
