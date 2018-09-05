@@ -2,7 +2,6 @@
 #include "./Algorithm/74.cpp"
 //#include "./LinkedList/100.cpp"
 //#include "./String/72.cpp"
-#include "./Arry/BinarySearch.cpp"
 
 int main()
 {
@@ -10,7 +9,9 @@ int main()
 	t_mTimer.TimeStart();
 	
 	//5,6,4,4,6,9,4,4,7,4,4,8,2,6,8,1,5,9,6,5,2,7,9,7,9,6,9,4,1,6,8,8,4,4,2,0,3,8,5
+
 	int myints11[] =  {1,3,5,7};
+
 	std::vector<int> nums11(myints11, myints11 + sizeof(myints11) / sizeof(int));
 
 	int myints12[] = {10,11,16,20};
@@ -47,7 +48,6 @@ int main()
 
 	Solution *t_mSolution = new Solution;
 	cout<<t_mSolution->searchMatrix(nums1,13)<<endl;
-
 	
 
 	t_mTimer.TimeStop();
