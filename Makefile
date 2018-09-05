@@ -3,4 +3,4 @@ a.out : main.cpp
 
 clean:
 	rm -f ./*.o a.out
-
+	
