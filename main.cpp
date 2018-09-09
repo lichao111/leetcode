@@ -1,5 +1,5 @@
-#include "./Arry/79.cpp"
-//#include "./Algorithm/74.cpp"
+//#include "./Arry/79.cpp"
+#include "./Algorithm/900.cpp"
 //#include "./LinkedList/100.cpp"
 //#include "./String/72.cpp"
 #include "./Arry/BinarySearch.cpp"
@@ -10,7 +10,7 @@ int main()
 	t_mTimer.TimeStart();
 	
 	//5,6,4,4,6,9,4,4,7,4,4,8,2,6,8,1,5,9,6,5,2,7,9,7,9,6,9,4,1,6,8,8,4,4,2,0,3,8,5
-	int myints11[] =  {1,3,5,7};
+	int myints11[] =  {3,8,0,9,2,5};
 	std::vector<int> nums11(myints11, myints11 + sizeof(myints11) / sizeof(int));
 
 	char myints12[] = {'A'};
@@ -45,12 +45,11 @@ int main()
 	// A.push_back(nums13);
 	// //A.push_back(nums14);
 
-	Solution *t_mSolution = new Solution;
-	cout<<(t_mSolution->exist(nums1,"B"))<<endl;
+	
+	RLEIterator a(nums11);
+	cout<<a.next(2)<<endl;;cout<<a.next(1)<<endl;;cout<<a.next(1)<<endl;;cout<<a.next(2)<<endl;;
 
-	Display(vector<int> (10,9));
 
-	cout<<int(9)<<endl;
 
 	t_mTimer.TimeStop();
 	t_mTimer.TimeUsr();
